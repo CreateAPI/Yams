@@ -261,9 +261,9 @@ extension ScalarConstructible where Self: FloatingPoint & SexagesimalConvertible
             return .nan
         default:
             let string = scalar.string.replacingOccurrences(of: "_", with: "")
-            if string.contains(":") {
-                return Self(sexagesimal: string)
-            }
+//            if string.contains(":") {
+//                return Self(sexagesimal: string)
+//            }
             return .create(from: string)
         }
     }
@@ -299,9 +299,9 @@ private extension FixedWidthInteger where Self: SexagesimalConvertible {
         for (prefix, radix) in prefixToRadix where scalar.hasPrefix(prefix) {
             return Self(signPrefix + scalar.dropFirst(prefix.count), radix: radix)
         }
-        if scalar.contains(":") {
-            return Self(sexagesimal: scalarWithSign)
-        }
+//        if scalar.contains(":") {
+//            return Self(sexagesimal: scalarWithSign)
+//        }
         return Self(scalarWithSign)
     }
 }
