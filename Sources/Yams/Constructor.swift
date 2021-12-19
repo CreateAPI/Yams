@@ -138,9 +138,9 @@ extension Bool: ScalarConstructible {
     /// - returns: An instance of `Bool`, if one was successfully extracted from the scalar.
     public static func construct(from scalar: Node.Scalar) -> Bool? {
         switch scalar.string.lowercased() {
-        case "true", "yes", "on":
+        case "true":
             return true
-        case "false", "no", "off":
+        case "false":
             return false
         default:
             return nil
